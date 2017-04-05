@@ -2,11 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Vending Machine</title>
   </head>
   <body>
-    <h1 class='h1'>SNACKS!</h1>
+    <div class='header'>
+      <h1>SNACKS!</h1>
+    </div>
 
     <div class='vending-container'>
       <div class='vending-machine'></div>
@@ -19,7 +22,7 @@
         </div>
 
         <div class='credit-container'>
-          <input placeholder='credits'>
+          <input placeholder='credits' class='credit-input' type='number'>
           <button class='enter-credits-btn'>Submit</button>
         </div>
 
@@ -41,9 +44,11 @@
             <div class='key'>7</div>
             <div class='key'>8</div>
             <div class='key'>9</div>
+            <div class='key'>0</div>
           </div>
         </div>
-      <div>
+        <button class='btn selection-submit'>Submit</button>
+      </div>
     </div>
 
 

@@ -1,5 +1,20 @@
-.h1 {
-  color: blue;
+.header {
+  width: 100%;
+  height: 60px;
+  background-color: lightgreen;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 34px;
+}
+
+.vending-container {
+  width: 60%;
+  margin: 40px auto;
 }
 
 .vending-item {
@@ -17,6 +32,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 40vw;
+  border: 2px solid;
 }
 
 .vending-container {
@@ -45,6 +61,10 @@
   color: yellow;
 }
 
+.screen p {
+  color: yellow;
+}
+
 .letter-pad {
   display: flex;
   flex-direction: column;
@@ -52,7 +72,6 @@
 
 .number-pad {
   width: 92px;
-  height: 122px;
   display: flex;
   flex-wrap: wrap;
 
@@ -81,4 +100,8 @@
 
 .number-pad .key {
   flex-grow: 1;
+}
+
+.selection-submit {
+  width: 80%;
 }
