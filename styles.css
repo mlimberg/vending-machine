@@ -25,6 +25,7 @@
   border: 1px solid;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .vending-machine {
@@ -59,6 +60,10 @@
   height: 8vh;
   background-color: gray;
   color: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
 }
 
 .screen p {

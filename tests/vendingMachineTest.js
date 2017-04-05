@@ -17,12 +17,9 @@ describe('Vending Machine', function() {
 
   it('should accept credits', () => {
     assert.equal(vendingMachine.state.status, 'idle')
-
     vendingMachine.addCredit(bimby.insertCredits(100))
-
     assert.equal(vendingMachine.state.status, 'credited')
     assert.equal(vendingMachine.state.credits, 100)
-    // assert.equal(vendingMachine.state.change, 0)
   });
 
   it('should save selections and credit if 100 credits are added', () => {
@@ -135,10 +132,11 @@ describe('vendingMachine methods', () => {
 
   })
 
-  it('should have a giveChange() method', () => {
+  it.only('should have a giveChange() method called in handleReset()', () => {
     vendingMachine.state.change = 25;
-    vendingMachine.giveChange()
-    assert.equal(vendingMachine.state.change, 0)
+    vendingMachine.handleReset()
+
+    assert.equal(vendingMachine.state.change, 0);
   })
 
   it('should have a resetState() method', () => {

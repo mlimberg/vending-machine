@@ -29,5 +29,8 @@
     "jquery": "^3.2.1",
     "mocha": "^3.2.0",
     "require": "^2.4.20"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
   }
 }
