@@ -1,0 +1,84 @@
+.h1 {
+  color: blue;
+}
+
+.vending-item {
+  width: 24%;
+  height: 18vh;
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid;
+  justify-content: center;
+  align-items: center;
+}
+
+.vending-machine {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 40vw;
+}
+
+.vending-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.vending-controls {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 40vh;
+}
+
+.credit-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.screen {
+  width: 20vw;
+  height: 8vh;
+  background-color: gray;
+  color: yellow;
+}
+
+.letter-pad {
+  display: flex;
+  flex-direction: column;
+}
+
+.number-pad {
+  width: 92px;
+  height: 122px;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.key {
+  width: 30px;
+  height: 30px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 1px 4px -1px rgba(120,120,120,1);
+}
+
+.key:hover {
+  cursor: pointer;
+}
+
+.keypads {
+  display: flex;
+  flex-direction: row;
+}
+
+.number-pad .key {
+  flex-grow: 1;
+}
