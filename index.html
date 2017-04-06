@@ -7,12 +7,12 @@
     <title>Vending Machine</title>
   </head>
   <body>
-    <div class='header'>
-      <h1>SNACKS!</h1>
-    </div>
 
     <div class='vending-container'>
-      <div class='vending-machine'></div>
+      <div>
+        <div class='vending-machine'></div>
+        <div class='dispenser'><span class='treat'>Snickers!</span></div>
+      </div>
 
       <div class='vending-controls'>
         <div class='screen'>
@@ -22,29 +22,32 @@
         </div>
 
         <div class='credit-container'>
-          <input placeholder='credits' class='credit-input' type='number'>
-          <button class='enter-credits-btn'>Submit</button>
+          <button class='credit-btn btn coin' id='5'>$0.05</button>
+          <button class='credit-btn btn coin' id='10'>$0.1</button>
+          <button class='credit-btn btn coin' id='25'>$0.25</button>
+          <button class='credit-btn btn cash' id='100'>$1</button>
+          <button class='credit-btn btn cash' id='500'>$5</button>
         </div>
 
         <div class='keypads'>
           <div class='letter-pad'>
-            <div class='key'>A</div>
-            <div class='key'>B</div>
-            <div class='key'>C</div>
-            <div class='key'>D</div>
+            <button class='key btn'>A</button>
+            <button class='key btn'>B</button>
+            <button class='key btn'>C</button>
+            <button class='key btn'>D</button>
           </div>
 
           <div class='number-pad'>
-            <div class='key'>1</div>
-            <div class='key'>2</div>
-            <div class='key'>3</div>
-            <div class='key'>4</div>
-            <div class='key'>5</div>
-            <div class='key'>6</div>
-            <div class='key'>7</div>
-            <div class='key'>8</div>
-            <div class='key'>9</div>
-            <div class='key'>0</div>
+            <button class='key btn'>1</button>
+            <button class='key btn'>2</button>
+            <button class='key btn'>3</button>
+            <button class='key btn'>4</button>
+            <button class='key btn'>5</button>
+            <button class='key btn'>6</button>
+            <button class='key btn'>7</button>
+            <button class='key btn'>8</button>
+            <button class='key btn'>9</button>
+            <button class='key btn'>0</button>
           </div>
         </div>
         <button class='btn selection-submit'>Submit</button>

@@ -1,15 +1,5 @@
-.header {
-  width: 100%;
-  height: 60px;
-  background-color: lightgreen;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header h1 {
-  font-size: 34px;
+body {
+  font-family: sans-serif;
 }
 
 .vending-container {
@@ -36,6 +26,24 @@
   border: 2px solid;
 }
 
+.dispenser {
+  width: 25vw;
+  height: 10vh;
+  border: 1px solid;
+  margin: auto;
+  margin-top: 10px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.treat {
+  color: white;
+  padding: 5px;
+  border: 1px solid white;
+}
+
 .vending-container {
   display: flex;
   flex-direction: row;
@@ -47,12 +55,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 40vh;
+  height: 55vh;
 }
 
 .credit-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  margin: 10px auto;
 }
 
 .screen {
@@ -79,10 +89,9 @@
   width: 92px;
   display: flex;
   flex-wrap: wrap;
-
 }
 
-.key {
+.key, .credit-btn {
   width: 30px;
   height: 30px;
   background-color: lightgray;
@@ -91,10 +100,9 @@
   align-items: center;
   margin: 5px;
   border-radius: 5px;
-  box-shadow: 2px 1px 4px -1px rgba(120,120,120,1);
 }
 
-.key:hover {
+.key:hover, .credit-btn:hover, .btn:hover {
   cursor: pointer;
 }
 
@@ -109,4 +117,26 @@
 
 .selection-submit {
   width: 80%;
+}
+
+.btn {
+  height: 30px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  box-shadow: 2px 1px 4px -1px rgba(120,120,120,1);
+}
+
+.coin {
+  border-radius: 50%;
+  background-color: silver;
+  width: 40px;
+  height: 40px;
+}
+
+.cash {
+  border-radius: 0px;
+  background-color: lightgreen;
+  width: 50px;
+  height: 35px;
 }

@@ -2,13 +2,13 @@ require('babel-core/register')({
   ignore: /node_modules\/(?!ProjectB)/
 });
 
-const assert = require('chai').assert
-const VendingMachine = require('../lib/vendingMachine').default
-const Person = require('../lib/person').default
+const assert = require('chai').assert;
+const VendingMachine = require('../lib/vendingMachine').default;
+const Person = require('../lib/person').default;
 
 describe('Vending Machine', function() {
-  const vendingMachine = new VendingMachine()
-  const bimby = new Person()
+  const vendingMachine = new VendingMachine();
+  const bimby = new Person();
 
   afterEach(function() {
     vendingMachine.reset();
@@ -16,10 +16,10 @@ describe('Vending Machine', function() {
   });
 
   it('should accept credits', () => {
-    assert.equal(vendingMachine.state.status, 'idle')
-    vendingMachine.addCredit(bimby.insertCredits(100))
-    assert.equal(vendingMachine.state.status, 'credited')
-    assert.equal(vendingMachine.state.credits, 100)
+    assert.equal(vendingMachine.state.status, 'idle');
+    vendingMachine.addCredit(bimby.insertCredits(100));
+    assert.equal(vendingMachine.state.status, 'credited');
+    assert.equal(vendingMachine.state.credits, 100);
   });
 
   it('should save selections and credit if 100 credits are added', () => {
@@ -45,50 +45,47 @@ describe('Vending Machine', function() {
   })
 
   it('should set invalid entry status if selection doesn\'t exist', () => {
-    assert.equal(vendingMachine.state.status, 'idle')
-    vendingMachine.setSelection('Z5')
-    assert.equal(vendingMachine.state.status, 'invalid entry')
+    assert.equal(vendingMachine.state.status, 'idle');
+    vendingMachine.setSelection('Z5');
+    assert.equal(vendingMachine.state.status, 'invalid entry');
   })
 
   it('should prompt an error if there are not enough credits', () => {
-    vendingMachine.addCredit(bimby.insertCredits(50))
-    assert.equal(vendingMachine.state.credits, 50)
-    vendingMachine.setSelection(bimby.makeSelection('A1'))
-    assert.equal(vendingMachine.state.status, 'more credits needed')
+    vendingMachine.addCredit(bimby.insertCredits(50));
+    assert.equal(vendingMachine.state.credits, 50);
+    vendingMachine.setSelection(bimby.makeSelection('A1'));
+    assert.equal(vendingMachine.state.status, 'more credits needed');
   })
 
   it('should return change if there are credits left over', () => {
     bimby.state.credits = 500;
-    vendingMachine.addCredit(bimby.insertCredits(100))
-    assert.equal(bimby.state.credits, 400)
-    vendingMachine.setSelection(bimby.makeSelection('A1'))
+    vendingMachine.addCredit(bimby.insertCredits(100));
+    assert.equal(bimby.state.credits, 400);
+    vendingMachine.setSelection(bimby.makeSelection('A1'));
 
-    assert.equal(vendingMachine.state.change, 25)
+    assert.equal(vendingMachine.state.change, 25);
   })
 
   it('should return an error status if credits do not meet price of the treat selected', () => {
-    vendingMachine.addCredit(bimby.insertCredits(50))
-    assert.equal(vendingMachine.state.credits, 50)
-    vendingMachine.setSelection(bimby.makeSelection('A1'))
-    assert.equal(vendingMachine.state.status, 'more credits needed')
+    vendingMachine.addCredit(bimby.insertCredits(50));
+    assert.equal(vendingMachine.state.credits, 50);
+    vendingMachine.setSelection(bimby.makeSelection('A1'));
+    assert.equal(vendingMachine.state.status, 'more credits needed');
   })
 
   it('should issue change even if remaining value is enough for another treat', () => {
-    assert.equal(bimby.state.credits, 500)
-    vendingMachine.addCredit(bimby.insertCredits(200))
-    assert.equal(vendingMachine.state.credits, 200)
-    assert.equal(bimby.state.credits, 300)
+    assert.equal(bimby.state.credits, 500);
+    vendingMachine.addCredit(bimby.insertCredits(200));
+    assert.equal(vendingMachine.state.credits, 200);
+    assert.equal(bimby.state.credits, 300);
 
-    vendingMachine.setSelection(bimby.makeSelection('A1'))
-    assert.equal(vendingMachine.state.change, 125)
-    bimby.receiveTreat(vendingMachine.dispenseTreat())
-    bimby.receiveChange(vendingMachine.giveChange())
-    assert.equal(bimby.state.credits, 425)
-    assert.equal(vendingMachine.state.change, 0)
-    assert.equal(bimby.state.treat, 'Sun Chips')
-
-
-
+    vendingMachine.setSelection(bimby.makeSelection('A1'));
+    assert.equal(vendingMachine.state.change, 125);
+    bimby.receiveTreat(vendingMachine.dispenseTreat());
+    bimby.receiveChange(vendingMachine.giveChange());
+    assert.equal(bimby.state.credits, 425);
+    assert.equal(vendingMachine.state.change, 0);
+    assert.equal(bimby.state.treat, 'Sun Chips');
   })
 
 });
@@ -160,30 +157,30 @@ describe('Person methods', () => {
 
 
   it('should start with 500 credits', () => {
-    assert.equal(bimby.state.credits, 500)
+    assert.equal(bimby.state.credits, 500);
   })
 
   it('should be able to insert credits', () => {
-    assert.equal(bimby.state.credits, 500)
-    bimby.insertCredits(100)
-    assert.equal(bimby.state.credits, 400)
+    assert.equal(bimby.state.credits, 500);
+    bimby.insertCredits(100);
+    assert.equal(bimby.state.credits, 400);
   })
 
   it('should be able to make a selection ', () => {
-    assert.equal(bimby.state.selection, '')
-    bimby.makeSelection('A1')
-    assert.equal(bimby.state.selection, 'A1')
+    assert.equal(bimby.state.selection, '');
+    bimby.makeSelection('A1');
+    assert.equal(bimby.state.selection, 'A1');
   })
 
   it('should be able to receive change ', () => {
-    assert.equal(bimby.state.credits, 500)
-    bimby.receiveChange(25)
-    assert.equal(bimby.state.credits, 525)
+    assert.equal(bimby.state.credits, 500);
+    bimby.receiveChange(25);
+    assert.equal(bimby.state.credits, 525);
   })
 
   it('should be able to receive a treat ', () => {
-    assert.equal(bimby.state.treat, '')
-    bimby.receiveTreat('Snickers')
-    assert.equal(bimby.state.treat, 'Snickers')
+    assert.equal(bimby.state.treat, '');
+    bimby.receiveTreat('Snickers');
+    assert.equal(bimby.state.treat, 'Snickers');
   })
 })
