@@ -25,6 +25,7 @@ body {
   flex-wrap: wrap;
   width: 40vw;
   border: 2px solid;
+  background-color: rgba(232, 250, 252, 0.7);
 }
 
 .treat-dispenser {
@@ -87,7 +88,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 55vh;
+  height: 75vh;
 }
 
 .credit-container {
@@ -105,38 +106,44 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 5px;
+  padding: 10px;
 }
 
 .screen p {
   color: yellow;
+  font-weight: 100;
+  margin: 2px;
 }
 
 .letter-pad {
   display: flex;
   flex-direction: column;
+  width: 60px;
 }
 
 .letter-pad .btn {
-  width: 35px;
+  width: 80%;
   background-color: #A19FA0;
 }
 
-.number-pad {
-  width: 92px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .key, .credit-btn {
-  width: 30px;
-  height: 30px;
   background-color: lightgray;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5px;
   border-radius: 5px;
+}
+
+.number-pad {
+  width: 120px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.number-pad .btn {
+  flex-grow: 1;
+  min-width: 40%;
 }
 
 .key:hover, .credit-btn:hover, .btn:hover {
@@ -149,13 +156,6 @@ body {
   margin-bottom: 10px;
 }
 
-.number-pad .key {
-  flex-grow: 1;
-}
-
-.selection-submit {
-  width: 30%;
-}
 
 .btn {
   height: 30px;
@@ -184,4 +184,13 @@ body {
 .treat-location {
   position: absolute;
   bottom: 5px;
+}
+
+.return-change-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-top: 30px;
+  background-color: #3E363A;
+  color: #FFF;
 }
