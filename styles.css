@@ -1,0 +1,167 @@
+body {
+  font-family: sans-serif;
+}
+
+.vending-container {
+  width: 60%;
+  margin: 40px auto;
+}
+
+.vending-item {
+  width: 24%;
+  height: 18vh;
+  display: flex;
+  flex-grow: 1;
+  border: 1px solid;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.vending-machine {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 40vw;
+  border: 2px solid;
+}
+
+.treat-dispenser {
+  width: 25vw;
+  height: 10vh;
+  border: 1px solid;
+  margin: auto;
+  margin-top: 10px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.treat {
+  color: white;
+  padding: 5px;
+  border: 1px solid white;
+}
+
+.change-dispenser {
+  width: 50px;
+  height: 50px;
+  border: 1px solid;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change {
+  color: black;
+}
+
+.change-label {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dispensers {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.vending-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.vending-controls {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 55vh;
+}
+
+.credit-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.screen {
+  width: 25vw;
+  height: 8vh;
+  background-color: gray;
+  color: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.screen p {
+  color: yellow;
+}
+
+.letter-pad {
+  display: flex;
+  flex-direction: column;
+}
+
+.number-pad {
+  width: 92px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.key, .credit-btn {
+  width: 30px;
+  height: 30px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.key:hover, .credit-btn:hover, .btn:hover {
+  cursor: pointer;
+}
+
+.keypads {
+  display: flex;
+  flex-direction: row;
+}
+
+.number-pad .key {
+  flex-grow: 1;
+}
+
+.selection-submit {
+  width: 80%;
+}
+
+.btn {
+  height: 30px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  box-shadow: 2px 1px 4px -1px rgba(120,120,120,1);
+}
+
+.coin {
+  border-radius: 50%;
+  background-color: silver;
+  width: 40px;
+  height: 40px;
+}
+
+.cash {
+  border-radius: 0px;
+  background-color: lightgreen;
+  width: 50px;
+  height: 35px;
+}

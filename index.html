@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Vending Machine</title>
+  </head>
+  <body>
+
+    <div class='vending-container'>
+      <div>
+        <div class='vending-machine'></div>
+
+        <div class='dispensers'>
+          <div class='treat-dispenser'></div>
+          <label class='change-label'>
+            Change
+            <div class='change-dispenser'></div>
+          </label>
+        </div>
+      </div>
+
+      <div class='vending-controls'>
+        <div class='screen'>
+          <p>Credits: <span class='credits'></span></p>
+          <p>Selection: <span class='selection'></span></p>
+          <p>Status: <span class='status'></span></p>
+        </div>
+
+        <div class='credit-container'>
+          <button class='credit-btn btn coin' id='5'>$0.05</button>
+          <button class='credit-btn btn coin' id='10'>$0.1</button>
+          <button class='credit-btn btn coin' id='25'>$0.25</button>
+          <button class='credit-btn btn cash' id='100'>$1</button>
+          <button class='credit-btn btn cash' id='500'>$5</button>
+        </div>
+
+        <div class='keypads'>
+          <div class='letter-pad'>
+            <button class='key btn'>A</button>
+            <button class='key btn'>B</button>
+            <button class='key btn'>C</button>
+            <button class='key btn'>D</button>
+          </div>
+
+          <div class='number-pad'>
+            <button class='key btn'>1</button>
+            <button class='key btn'>2</button>
+            <button class='key btn'>3</button>
+            <button class='key btn'>4</button>
+            <button class='key btn'>5</button>
+            <button class='key btn'>6</button>
+            <button class='key btn'>7</button>
+            <button class='key btn'>8</button>
+            <button class='key btn'>9</button>
+            <button class='key btn'>0</button>
+          </div>
+        </div>
+        <button class='btn selection-submit'>Submit</button>
+      </div>
+    </div>
+
+  </body>
+
+  <script src='./lib/treats.js'></script>
+  <script src='./lib/jquery.js'></script>
+  <script src='./lib/person.js'></script>
+  <script src='./lib/vendingMachine.js'> </script>
+  <script src='./lib/index.js'> </script>
+</html>
