@@ -5,14 +5,15 @@ require('babel-core/register')({
 const assert = require('chai').assert;
 const VendingMachine = require('../lib/vendingMachine').default;
 const Person = require('../lib/person').default;
+const treats = require('../lib/treats').default
 
 describe('Vending Machine', function() {
   const vendingMachine = new VendingMachine();
-  const bimby = new Person();
+  const bimby = new Person()
 
   afterEach(function() {
-    vendingMachine.reset();
-    bimby.reset();
+    vendingMachine.reset()
+    bimby.reset()
   });
 
   it('should accept credits', () => {
@@ -96,6 +97,7 @@ describe('Vending Machine', function() {
 
 describe('vendingMachine methods', () => {
   const vendingMachine = new VendingMachine()
+  vendingMachine.treats = treats
 
   afterEach(function() {
     vendingMachine.reset();
@@ -129,7 +131,7 @@ describe('vendingMachine methods', () => {
 
   })
 
-  it.only('should have a giveChange() method called in handleReset()', () => {
+  it('should have a giveChange() method called in handleReset()', () => {
     vendingMachine.state.change = 25;
     vendingMachine.handleReset()
 
