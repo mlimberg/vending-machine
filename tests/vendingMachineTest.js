@@ -5,7 +5,6 @@ require('babel-core/register')({
 const assert = require('chai').assert;
 const VendingMachine = require('../lib/vendingMachine').default;
 const Person = require('../lib/person').default;
-const treats = require('../lib/treats').default
 
 describe('Vending Machine', function() {
   const vendingMachine = new VendingMachine();
@@ -55,7 +54,7 @@ describe('Vending Machine', function() {
     vendingMachine.addCredit(bimby.insertCredits(50));
     assert.equal(vendingMachine.state.credits, 50);
     vendingMachine.setSelection(bimby.makeSelection('A1'));
-    assert.equal(vendingMachine.state.status, 'more credits needed');
+    assert.equal(vendingMachine.state.status, '25 more credits needed');
   })
 
   it('should return change if there are credits left over', () => {
@@ -71,7 +70,7 @@ describe('Vending Machine', function() {
     vendingMachine.addCredit(bimby.insertCredits(50));
     assert.equal(vendingMachine.state.credits, 50);
     vendingMachine.setSelection(bimby.makeSelection('A1'));
-    assert.equal(vendingMachine.state.status, 'more credits needed');
+    assert.equal(vendingMachine.state.status, '25 more credits needed');
   })
 
   it('should issue change even if remaining value is enough for another treat', () => {
@@ -81,12 +80,8 @@ describe('Vending Machine', function() {
     assert.equal(bimby.state.credits, 300);
 
     vendingMachine.setSelection(bimby.makeSelection('A1'));
+    assert.equal(vendingMachine.state.selection, 'A1')
     assert.equal(vendingMachine.state.change, 125);
-    bimby.receiveTreat(vendingMachine.dispenseTreat());
-    bimby.receiveChange(vendingMachine.giveChange());
-    assert.equal(bimby.state.credits, 425);
-    assert.equal(vendingMachine.state.change, 0);
-    assert.equal(bimby.state.treat, 'Sun Chips');
   })
 
 });
@@ -97,7 +92,6 @@ describe('Vending Machine', function() {
 
 describe('vendingMachine methods', () => {
   const vendingMachine = new VendingMachine()
-  vendingMachine.treats = treats
 
   afterEach(function() {
     vendingMachine.reset();
@@ -117,25 +111,26 @@ describe('vendingMachine methods', () => {
     assert.equal(vendingMachine.state.selection, 'B5')
   })
 
-  xit('should have a checkCredits() method', () => {
-
+  it('should have a checkCredits() method', () => {
+    vendingMachine.state.credits = 25
+    vendingMachine.state.selection = 'A1'
     vendingMachine.checkCredits()
+    assert.equal(vendingMachine.state.status, '50 more credits needed')
   })
 
   it('should have a notEnoughCredits() method', () => {
-    vendingMachine.notEnoughCredits();
-    assert.equal(vendingMachine.state.status, 'more credits needed')
+    vendingMachine.notEnoughCredits(25);
+    assert.equal(vendingMachine.state.status, '25 more credits needed')
   })
 
-  xit('should have a dispenseTreat() method', () => {
+  it('should have a dispenseTreat() method', () => {
+    vendingMachine.addCredit(75)
+    vendingMachine.setSelection('D4')
+    vendingMachine.resetState()
+    vendingMachine.addCredit(75)
+    vendingMachine.setSelection('D4')
+    assert.equal(vendingMachine.state.status, 'out of stock')
 
-  })
-
-  it('should have a giveChange() method called in handleReset()', () => {
-    vendingMachine.state.change = 25;
-    vendingMachine.handleReset()
-
-    assert.equal(vendingMachine.state.change, 0);
   })
 
   it('should have a resetState() method', () => {
