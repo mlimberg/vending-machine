@@ -16,6 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 
 .vending-machine {
@@ -24,14 +25,13 @@ body {
   flex-wrap: wrap;
   width: 40vw;
   border: 2px solid;
+  background-color: rgba(232, 250, 252, 0.7);
 }
 
 .treat-dispenser {
   width: 25vw;
   height: 10vh;
   border: 1px solid;
-  margin: auto;
-  margin-top: 10px;
   background-color: black;
   display: flex;
   justify-content: center;
@@ -44,14 +44,18 @@ body {
   border: 1px solid white;
 }
 
+.treat:hover, .change:hover {
+  cursor: pointer;
+}
+
 .change-dispenser {
   width: 50px;
   height: 50px;
   border: 1px solid;
-  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 5px;
 }
 
 .change {
@@ -60,13 +64,17 @@ body {
 
 .change-label {
   text-align: center;
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dispensers {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 15px;
+  justify-content: space-around;
 }
 
 .vending-container {
@@ -80,7 +88,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 55vh;
+  height: 75vh;
 }
 
 .credit-container {
@@ -98,33 +106,44 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 5px;
+  padding: 10px;
 }
 
 .screen p {
   color: yellow;
+  font-weight: 100;
+  margin: 2px;
 }
 
 .letter-pad {
   display: flex;
   flex-direction: column;
+  width: 60px;
 }
 
-.number-pad {
-  width: 92px;
-  display: flex;
-  flex-wrap: wrap;
+.letter-pad .btn {
+  width: 80%;
+  background-color: #A19FA0;
 }
 
 .key, .credit-btn {
-  width: 30px;
-  height: 30px;
   background-color: lightgray;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5px;
   border-radius: 5px;
+}
+
+.number-pad {
+  width: 120px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.number-pad .btn {
+  flex-grow: 1;
+  min-width: 40%;
 }
 
 .key:hover, .credit-btn:hover, .btn:hover {
@@ -134,15 +153,9 @@ body {
 .keypads {
   display: flex;
   flex-direction: row;
+  margin-bottom: 10px;
 }
 
-.number-pad .key {
-  flex-grow: 1;
-}
-
-.selection-submit {
-  width: 80%;
-}
 
 .btn {
   height: 30px;
@@ -150,6 +163,7 @@ body {
   outline: none;
   border: none;
   box-shadow: 2px 1px 4px -1px rgba(120,120,120,1);
+  font-size: 14px;
 }
 
 .coin {
@@ -157,11 +171,27 @@ body {
   background-color: silver;
   width: 40px;
   height: 40px;
+  font-size: 12px;
 }
 
 .cash {
   border-radius: 0px;
   background-color: lightgreen;
-  width: 50px;
+  width: 60px;
   height: 35px;
+}
+
+.treat-location {
+  position: absolute;
+  bottom: 5px;
+}
+
+.return-change-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-top: 30px;
+  background-color: #3E363A;
+  color: #FFF;
+  box-shadow: 2px 2px 2px -1px rgba(19,25,16,1);
 }
